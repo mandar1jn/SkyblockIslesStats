@@ -2,7 +2,7 @@ const express = require("express");
 
 let app = express();
 
-const expReqs = [0, 90, 108, 129, 154, 183, 218];
+const expReqs = [0, 90, 108, 129, 154, 183, 218, 259, 307, 363, 429, 506, 596, 701, 824, 967, 1133, 1325, 1548, 1806, 2103, 2446, 2840, 3293, 3812];
 
 app.set('view engine', "ejs");
 
