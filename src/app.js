@@ -2,6 +2,8 @@ const express = require("express");
 
 let app = express();
 
+const expReqs = [0, 90, 108, 129, 154, 183, 218];
+
 app.set('view engine', "ejs");
 
 app.all("/profile/:username", async (req, res, err) => 
@@ -16,7 +18,7 @@ app.all("/profile/:username", async (req, res, err) =>
 		}
 		else
 		{
-			res.render("profile", {name: json.username, skills: json.skills});
+			res.render("profile", {username: json.username, skills: json.skills, xpReqs: expReqs});
 		}
 	});
 });
