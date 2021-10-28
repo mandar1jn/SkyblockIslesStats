@@ -16,7 +16,7 @@ app.all("/profile/:username", async (req, res, err) =>
 		}
 		else
 		{
-			res.render("profile", {name: json["username"], skills: json["skills"]});
+			res.render("profile", {name: json.username, skills: json.skills});
 		}
 	});
 });
