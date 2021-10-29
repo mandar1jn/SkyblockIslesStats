@@ -45,6 +45,7 @@ let level = calculateLevel(data);%>
 <html>
     <body>
         <p><%= username %></p>
+		<button onClick=navigator.clipboard.writeText("<%= data.uuid %>")>Copy UUID</button>
         <%= generate_skill_components(); %>
     </body>
 </html>

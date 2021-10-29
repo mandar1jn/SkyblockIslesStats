@@ -19,7 +19,7 @@ app.all("/profile/:username", async (req, res, err) =>
         else
         {
 
-            res.render("profile", {username: json.username, xpReqs: expReqs, skills: json.skills});
+            res.render("profile", {username: json.username, xpReqs: expReqs, skills: json.skills, data: json});
         }
     });
 });
