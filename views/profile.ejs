@@ -1,14 +1,3 @@
-<% function calcXp(data, name)
-{
-    let current = data.xp;
-    let required = xpReqs[data.level];
-    
-    let percentage = ((current/required)*100).toFixed(0);
-    
-    
-    return `${current.toFixed(0)}/${required} (${percentage}%)`;
-} %>
-
 <% function calculateLevel(level)
 {
     let requiredXP = xpReqs[level.level];
@@ -17,18 +6,45 @@
     {
         current -= xpReqs[i];
     }
+
+	if(!Number.isInteger(current))
+	{
+		current = current.toFixed(1);
+	}
+
     return {level: level.level, required: requiredXP, current: current};
 } %>
 
 <% const skill_component = (name, data) => { 
 let level = calculateLevel(data);%>
-<p><%= name %> level: <%= level.level %><br><%= name %> XP: <%= level.current %>/<%= level.required %><br></p>
-<progress value="<%= level.current %>" max="<%= level.required %>">progress</progress>
+	<p><%= name %> level: <%= level.level %><br><%= name %> XP: <%= level.current %>/<%= level.required %><br></p>
+	<progress value="<%= level.current %>" max="<%= level.required %>">progress</progress>
 <% }; %>
 
+<% const generate_skill_components = () => { %>
+	<%= skill_component("Fishing", skills.fishing) %>
+	<%= skill_component("Farming", skills.farming) %>
+	<%= skill_component("Mining", skills.mining) %>
+	<%= skill_component("Woodcutting", skills.woodcutting) %>
+	<%= skill_component("Agility", skills.agility) %>
+	<%= skill_component("Slayer", skills.slayer) %>
+	<%= skill_component("Attack", skills.attack) %>
+	<%= skill_component("Strength", skills.strength) %>
+	<%= skill_component("Defense", skills.defense) %>
+	<%= skill_component("Health", skills.health) %>
+	<%= skill_component("Range", skills.range) %>
+	<%= skill_component("Magic", skills.magic) %>
+	<%= skill_component("Cooking", skills.cooking) %>
+	<%= skill_component("Fletching", skills.fletching) %>
+	<%= skill_component("Smithing", skills.smithing) %>
+	<%= skill_component("Artisan", skills.artisan) %>
+	<%= skill_component("Alchemy", skills.alchemy) %>
+<% }; %>
+
+<!DOCTYPE html>
 <html>
     <body>
         <p><%= username %></p>
-        <%= skill_component('Taming', skills.fishing) %>
+        <%= generate_skill_components(); %>
     </body>
 </html>
