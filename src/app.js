@@ -18,9 +18,10 @@ app.all("/profile/:username", async (req, res, err) =>
         }
         else
         {
-            res.render("profile", {username: json.username, skills: json.skills, xpReqs: expReqs});
+
+            res.render("profile", {username: json.username, xpReqs: expReqs, skills: json.skills});
         }
     });
 });
 
-app.listen(process.env.PORT || 8888);
+app.listen(8888);
