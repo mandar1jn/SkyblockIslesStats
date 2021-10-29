@@ -23,4 +23,4 @@ app.all("/profile/:username", async (req, res, err) =>
     });
 });
 
-app.listen(8888);
+app.listen(process.env.PORT || 8888);
